@@ -14,6 +14,7 @@ ratings.drop_duplicates(inplace=True)
 movies.dropna(inplace=True)
 ratings.dropna(inplace=True)
 
+print('first:', movies.iloc[0])
 
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.neighbors import NearestNeighbors # Using Nearest Class from scikit-learn 
@@ -21,6 +22,8 @@ from sklearn.neighbors import NearestNeighbors # Using Nearest Class from scikit
 def process_data():
   
   genres = movies['genres'] # feature (column) to be based on
+  
+  
   encoder = OneHotEncoder() # instanciate the encoder
   genres_encoded = encoder.fit_transform(genres.values.reshape(-1, 1)) # fitting and transforming the generes column
   
@@ -36,7 +39,7 @@ def recommend_movie(movie_index):
   recommender, genres_encoded = process_data()
   
   #movie_index = index # the movie the user has previously watched
-  num_recommendations = 15 # number of recommendations to return
+  num_recommendations = 25 # number of recommendations to return
   
   # getting the recommendations
   _, recommendations = recommender.kneighbors(genres_encoded[movie_index].toarray(), n_neighbors=num_recommendations)
