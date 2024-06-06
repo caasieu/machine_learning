@@ -2,6 +2,8 @@
 pip install pandas
 pip install -U scikit-learn
 pip install numpy 
+pip install matplotlib
+pip install seaborn
 
 
 python3 -m pip show scikit-learn  # show scikit-learn version and location

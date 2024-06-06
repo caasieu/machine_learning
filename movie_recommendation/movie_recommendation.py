@@ -1,3 +1,5 @@
+# Based on the genres | content-based recommendation
+
 import pandas as pd
 
 #with open('./data/movies.csv', 'rb') as f:
@@ -25,7 +27,7 @@ def process_data():
   
   
   encoder = OneHotEncoder() # instanciate the encoder
-  genres_encoded = encoder.fit_transform(genres.values.reshape(-1, 1)) # fitting and transforming the generes column
+  genres_encoded = encoder.fit_transform(genres.values.reshape(-1, 1)) # fitting and transforming the genres column
   
   #print('genres:', genres)
   #print('genres_encoded:', genres_encoded)
